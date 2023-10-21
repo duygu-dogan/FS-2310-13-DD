@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td colspan="4"><h1 style="font-size: 20px; text-align: center;">Öğrenci Listesi</h1></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">X</td>
+            <td colspan="2" style="text-align: center;">Y</td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">ID</td>
+            <td style="text-align: center;">Ad Soyad</td>
+            <td style="text-align: center;">Doğum Yılı</td>
+            <td style="text-align: center;">Cinsiyet</td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">435</td>
+            <td style="text-align: center;">Duygu Doğan</td>
+            <td style="text-align: center;">1994</td>
+            <td style="text-align: center;">Kadın</td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">356</td>
+            <td style="text-align: center;">Kadir İnce</td>
+            <td style="text-align: center;">1987</td>
+            <td style="text-align: center;">Erkek</td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">657</td>
+            <td style="text-align: center;">Uğur Çelik</td>
+            <td style="text-align: center;">1994</td>
+            <td style="text-align: center;">Erkek</td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">768</td>
+            <td style="text-align: center;">Dilan Yıldırım</td>
+            <td style="text-align: center;">1995</td>
+            <td style="text-align: center;">Kadın</td>
+        </tr>
+    </table>
+    
+        <a href="index.html" 
+        onclick="window.open('index.html', 
+                            'newwindow', 
+                            'width=300,height=250'); 
+                return false;"
+        ><h1>Yeni Tablo</h1></a>
+       <table border="1">
+        <tr>
+            <td rowspan="3">A Salonu</td>
+            <td>1. Film</td>
+        </tr>
+        <tr>
+            <!-- Bunu ilk satırdaki td'de rowspan yaptığımız için siliyoruz -->
+            <!-- <td></td> --> 
+            <td>2. Film</td>
+        </tr>
+        <tr>
+            <!-- Bunu ilk satırdaki td'de rowspan yaptığımız için siliyoruz -->
+            <!-- <td></td> -->
+            <td>3. Film</td>
+        </tr>
+        <tr>
+            <td rowspan="3">B Salonu</td>
+            <td>1. Film</td>
+        </tr>
+        <tr>
+            <td>2. Film</td>
+        </tr>
+        <tr>
+            <td>3. Film</td>
+        </tr>
+       </table>
+        
+    
+</body>
+</html>
