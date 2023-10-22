@@ -1,0 +1,28 @@
+.kutu {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    /* margin-top: 10px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    margin-left: 40px; 
+    Aşağıdaki gibi yazarak tek satırda ifade edilebilir. Sağ yönünde ilerler, top'tan başlar.*/
+    /* margin: 10px 20px 30px 40px; */
+    
+    /* margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    margin-right: 30px; 
+    Margin içine dört değil iki değer yazılırsa ilki alt-üst, ikincisi sol-sağ olarak uygulanır.*/
+    /* margin: 20px 30px; */
+
+    /* İlki top, ikincisi bottom, üçüncüsü left-right */
+    /* margin: 10px 40px 60px; */
+    margin: 20px;
+    margin-left: 10px;
+    display: inline-block;
+}
+body{
+    margin: 0;
+
+}

@@ -1,0 +1,18 @@
+/* Element Selectors
+    Tag{
+    property:value
+    } */
+h1{
+    color: red;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+p{
+    font-size: 20px;
+    text-align: justify;
+}
+.main_header{
+    color: blue;
+}
+#paragraph1{
+    color: orange;
+}
