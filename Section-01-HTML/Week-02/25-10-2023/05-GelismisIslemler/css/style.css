@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+#main-header{
+    background-color: tomato;
+    padding: 10px 25px;
+    height: 65px;
+}
+#main-header>a{
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+a{
+    /* alt çizgiyi kaldırma */
+    text-decoration: none;
+}
+#main-nav{
+    display: inline-block;
+    width: calc(100% - 165px);
+    text-align: end;
+
+}
+#main-header>nav>a{
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+    background-color: green;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    height: 40px;
+    font-size: 16px;
+}
+/* üzerine gelindiğinde biçim değişimi */
+#main-nav a:hover{
+    background-color: white;
+    color: green;
+    text-decoration: underline;
+    font-weight: bold;
+    height: 40px;
+    padding-top: 7.5px;
+    padding-bottom: 7.5px;
+    /* line-height: 1; */
+}
+#main-content{
+    height: calc(100vh - 65px);
+}
+#show-case{
+    height: 30%;
+    background-color: aqua;
+}
+
+
