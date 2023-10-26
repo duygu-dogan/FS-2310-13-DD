@@ -1,57 +1,97 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap');
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-family: Ubuntu;
+    font-weight: 300;
 }
-#main-header{
-    background-color: tomato;
-    padding: 10px 25px;
-    height: 65px;
+
+#main-header {
+    background-color: #0C356A;
+    padding: 0.6em 1.5em;
+    height: 4em;
 }
-#main-header>a{
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
+
+#main-header>a {
+    color: #FFC436;
+    font-size: 1.9em;
+    font-weight: 700;
 }
-a{
+
+a {
     /* alt çizgiyi kaldırma */
     text-decoration: none;
 }
-#main-nav{
+
+#main-nav {
     display: inline-block;
     width: calc(100% - 165px);
     text-align: end;
 
 }
-#main-header>nav>a{
+
+#main-header>nav>a {
     display: inline-block;
     width: 120px;
     text-align: center;
-    background-color: green;
-    color: white;
-    padding: 5px;
-    border-radius: 10px;
-    height: 40px;
-    font-size: 16px;
+    background-color: #0174BE;
+    color: #FFF0CE;
+    padding: 0.3em;
+    border-radius: .6em;
+    height: 2.1em;
+    font-size: 1em;
 }
+
 /* üzerine gelindiğinde biçim değişimi */
-#main-nav a:hover{
-    background-color: white;
-    color: green;
+#main-nav a:hover {
+    background-color: #FFC436;
+    color: #FCF5ED;
     text-decoration: underline;
-    font-weight: bold;
-    height: 40px;
-    padding-top: 7.5px;
-    padding-bottom: 7.5px;
+    font-weight: 400;
+    height: 2.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
     /* line-height: 1; */
 }
-#main-content{
-    height: calc(100vh - 65px);
-}
-#show-case{
-    height: 30%;
-    background-color: aqua;
+
+#main-content {
+    /* height: calc(100vh - 65px); */
 }
 
+#show-case {
+    padding: 6em 0;
+    background-color: #0174BE;
+}
 
+#show-case h1 {
+    text-align: center;
+    font-size: 3em;
+    color: #FFF0CE;
+}
+
+#how-it-works {}
+
+.sample {
+    background-color: blue;
+}
+.m-0 {
+    margin: 0;
+}
+
+.m-1 {
+    margin: 4px;
+}
+.m-2{
+    margin: 8px;
+}
+.m-3{
+    margin: 16px;
+}
+.m-4 {
+    margin: 32px;
+}
+.m-5 {
+    margin: 40px;
+}
