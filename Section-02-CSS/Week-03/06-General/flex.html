@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .flex-container{
+            background-color: aqua;
+            height: 95vh;
+            display: flex;
+            /* sadece flex yazdığımızda felx-direction: row gibi davranıyor. alt alta kullanmak istiyorsak direction'ı column yapıyoruz */
+            /* flex-direction: column; */
+
+            /* flex-direction: column-reverse; hem kolon hem tersine çevirme */
+
+            /* flex-direction: row-reverse; */
+
+            /* flex-direction: row; */
+
+            /*flex-wrap: nowrap; */
+            
+            /* reverse wrap sığmayan satırı üste atar
+            flex-wrap: wrap-reverse;*/
+
+            /* satıra sığmadığında aşağı atma */
+            /* flex-wrap: wrap; */
+
+            /* direction ve wrap property'lerini tek defada kullanma: */
+            flex-flow: row wrap;
+
+            /* justify-content özelliği, flex-direction'ın aldığı değere göre farklı çalışır.
+            1. flex-direction row ise --> yatay hizalama
+            2. flex-direction column ise --> dikey hizalama yapar */
+            /* justify-content: flex-start; default*/
+            /* justify-content: flex-end; sağa hizalama*/
+            /* justify-content: center; blok halinde ortalama */
+            justify-content: space-between; 
+            /* kenara yasalayarak eşit aralıkla tüm satıra dağıtma */
+            /* justify-content: space-around; tüm elementlerin sağına ve soluna eşit boşluk verme*/
+            /* justify-content: space-evenly; */
+            /* ödev: space-evenly ne ifade eder? */
+
+            /* align-items flex-direction değerine göre dikeyde veya yatayda hizalama yapar 
+            1. flex-direction row ise --> dikey hizalama
+            2. flex-direction column ise --> yatay hizalama yapar*/
+            /* align-items: flex-start; */
+            /* align-items: flex-end; */
+            /* align-items: stretch; */
+            /* align-items: baseline; yazı boyutuna göre hizalama yapar*/
+        }
+        .flex-item{
+            background-color: orangered;
+            padding: 30px;
+            margin: 10px;
+            font-size: 30px;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item">1</div>
+        <div class="flex-item" style="font-size: 40px;">2</div>
+        <div class="flex-item">3</div>
+        <div class="flex-item">4</div>
+        <div class="flex-item">5</div>
+        <!-- <div class="flex-item">6</div>
+        <div class="flex-item">7</div>
+        <div class="flex-item">8</div>
+        <div class="flex-item">9</div>
+        <div class="flex-item">10</div>
+        <div class="flex-item">11</div>
+        <div class="flex-item">12</div>
+        <div class="flex-item">13</div>
+        <div class="flex-item">14</div>
+        <div class="flex-item">15</div>
+        <div class="flex-item">16</div>
+        <div class="flex-item">17</div>
+        <div class="flex-item">18</div> -->
+    </div>
+</body>
+</html>

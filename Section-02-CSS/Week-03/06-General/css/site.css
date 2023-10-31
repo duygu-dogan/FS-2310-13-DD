@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+
+/* root alanında değişken tanımlama yapabiliyoruz */
+:root {
+    --primary-color: #12486B;
+    --secondary-color: #419197;
+    --text-color: #78D6C6;
+    --light-color: #F5FCCD;
+    --black-color: #000000;
+    --white-color: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+    font-weight: 100;
+}
+
+a {
+    text-decoration: none;
+    color: var(--light-color);
+    font-weight: 200
+}
+
+.container {
+    width: 90vw;
+    /* auto dediğimizde mevcut genişlikten kapladığı alanı çıkarıp ikiye bölüyor ve kenarlara dağıtıyor yani ortalıyor */
+    margin: 0 auto;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}
+
+/* Yanyana getirmek istediğimiz elementleri kapsayan elementte yapılan bir manipülasyon (displayin muadili), flex verilen elementin içindeki elementleri inline-block haline getiriyor (default özelliği) */
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--secondary-color);
+}
+
+.header-logo {
+    font-size: 30px;
+    font-weight: 500;
+    color: #F5FCCD;
+}
+
+.main-nav {
+    /* width: 100%; */
+
+}
+
+.main-nav-items {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    /* flex yapıdaki elementler arası yatay-dikey boşlukları gap ile verebiliyoruz  */
+    /* gap: 20px; */
+    /* sadece yatay elementler varsa column, dikeyse raw-gap özelliğini kullanıyoruz */
+    column-gap: 20px;
+
+}
+
+.main-nav-item {
+    /* margin-left: 20px; bunun yerine kapsayıcı elemente gidip gap attribute ile 20px verebiliriz*/
+}
