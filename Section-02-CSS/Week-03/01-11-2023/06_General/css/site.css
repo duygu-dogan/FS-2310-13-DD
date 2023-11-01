@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+
+/* root alanında değişken tanımlama yapabiliyoruz */
+:root {
+    --primary-color: #164863;
+    --secondary-color: #427D9D;
+    --text-color: #9BBEC8;
+    --light-color: #DDF2FD;
+    --black-color: #000000;
+    --white-color: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+    font-weight: 100;
+}
+
+a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 200;
+}
+
+.container {
+    width: 90vw;
+    /* auto dediğimizde mevcut genişlikten kapladığı alanı çıkarıp ikiye bölüyor ve kenarlara dağıtıyor yani ortalıyor */
+    margin: 0 auto;
+    /* background-color: var(--primary-color); */
+    /* color: var(--light-color); */
+}
+
+/* Yanyana getirmek istediğimiz elementleri kapsayan elementte yapılan bir manipülasyon (displayin muadili), flex verilen elementin içindeki elementleri inline-block haline getiriyor (default özelliği) */
+.header {
+    display: flex;
+    justify-content: space-between;
+    /* background-color: var(--primary-color); */
+    align-items: center;
+    height: 80px;
+}
+
+.header-logo {
+    font-size: 30px;
+    font-weight: 500;
+    /* color: #F5FCCD; */
+    /* background-color: yellowgreen; */
+}
+
+.main-nav {
+    /* background-color: yellowgreen; */    
+}
+
+.main-nav-items {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    /* flex yapıdaki elementler arası yatay-dikey boşlukları gap ile verebiliyoruz  */
+    /* gap: 20px; */
+    /* sadece yatay elementler varsa column, dikeyse raw-gap özelliğini kullanıyoruz */
+    column-gap: 20px;
+
+}
+
+.main-nav-item {
+    /* margin-left: 20px; bunun yerine kapsayıcı elemente gidip gap attribute ile 20px verebiliriz*/
+    height: 30px;
+    width: 80px;
+    /* background-color: #12486B; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main-nav-item>a{
+    font-weight: 400;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.6px solid var(--secondary-color);
+}
+.main-nav-item>a:hover{
+    background-color: #d1e3e9;
+    color: var(--primary-color);
+    font-weight: 300;
+}
+.main{
+    
+}
+
+#show-case{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to top left, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)), url("/images/home-bg.jpeg");
+    background-size: cover;
+    background-position: center;
+}
+#show-case-content{
+    height: 50%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+#show-case-content>h2{
+    font-size: 80px;
+    font-weight: 300;
+    color: var(--white-color);
+}
+#show-case-content>h3{
+    color: var(--white-color);
+}
+.how-it-works{
+    display: flex;
+    column-gap: 20px;
+    padding: 25px;
+    
+}
+.how-it-works-item{
+    /* text-align: justify; */
+}
+.how-it-works-item>h2{
+    /* text-align: center; */
+}
+.fa-solid{
+    font-size: 60px;
+
+}
+.fa-regular {
+    font-size: 60px;
+    color: var(--secondary-color);
+    /* padding: 0 60px 20px; */
+}
