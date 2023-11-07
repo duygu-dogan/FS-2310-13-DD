@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <title>Bootstrap</title>
+</head>
+
+<body>
+    <!-- badges: mesaj geldi gibi uyarı kutucuğu gösterme -->
+    <!-- margin vermek için sol-sağ için ms(margin-start) ve me(margin-end) kullanıyoruz. Vertical=my, horizontal=mx -->
+    <!-- circle-pill ikisi de yuvarlar ama circle kenarların ortasından her iki kenarı da %50 kısaltır. pill kenarları ortasından tek tarafa doğru kısaltır (böyle mi kontrol et?) -->
+    <!-- fs: 1-6 arası standart font-size -->
+    <!-- pozisyon ayarlama: değiştirmek istediğimizinkini absolute, içinde bulunduğunu relative yapıyoruz. yerini belirlemek için top,start, end, bottom gibi classları ve yanına kaç px istediğimizi yazıyoruz -->
+    <h1>Mesajlar<span class="badge text-bg-primary ms-2">15</span></h1>
+    <h1>Mesajlar<span class="badge text-bg-primary rounded-pill ms-2">15</span></h1>
+    <h1>Mesajlar<span style="width: 25px; height: 25px;" class=" badge text-bg-primary rounded-pill ms-2">20</span></h1>
+    <button type="button" class="position-relative btn btn-primary">
+    <h1>Mesajlar <span class="badge text-bg-danger position-absolute top-49 rounded-pill fs-6 start-80">+22</span> </h1>
+    </button>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

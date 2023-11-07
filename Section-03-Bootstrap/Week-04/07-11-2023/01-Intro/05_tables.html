@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <title>Bootstrap</title>
+</head>
+
+<body>
+    <!-- table classına ayrı bir özellik vermezsek responsive ve var olan genişlik kadar tablo oluşturur 
+    bordered: dikey çizgiler ekler
+    hover: üzerine gelince gölge
+    danger,success gibi renk kodları burada da çalışır
+    table-sm: yüksekliği azaltır
+    table-striped: bir satır açık bir satır koyu
+    table-striped-columns: bir kolon açık bir kolon koyu
+    table-active: sadece bir satır/sütunun aktif görünmesi için-->
+    <table class="table table-bordered table-success table-sm">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Product Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td class="table-active">IPhone 15 Pro</td>
+                <td>89.000 TL</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>IPhone 14</td>
+                <td>49.900 TL</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>MacBook Pro M3</td>
+                <td>71.000 TL</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Xiaomi T13</td>
+                <td>32.500 TL</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>ID</th>
+                <th>Product Name</th>
+                <th>Price</th>
+            </tr>
+        </tfoot>
+    </table>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
