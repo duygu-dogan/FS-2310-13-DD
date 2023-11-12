@@ -1,0 +1,21 @@
+/* .hero{
+    width: 90vw;
+    /* margin: 0 auto; */
+
+}
+.hero-image{
+    
+    height: 80vh;
+        background: linear-gradient(to top left, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)), url("/images/home-bg.jpeg");
+        display: flex;
+        background-size: cover;
+        background-position: center;
+        justify-content: center;
+        align-items: center;
+        margin-right: 80px;
+}
+.hero-image h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
