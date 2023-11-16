@@ -1,3 +1,5 @@
+//arrays: programlama literatüründe veri yapıları başlığı altında incelenen konulardan biri
+
 // let products = [];
 // products[0] = "iPhone 15 Pro";
 // products[1] = "iPhone 14 Pro";
