@@ -60,15 +60,21 @@ let departments = ["İnşaat Mühendisliği", "Yazılım Mühendisliği", "Mimar
 let students = [];
 var arr = [];
 while (arr.length < 3) {
-    let n = Math.floor(Math.random() * 3) + 1;
+    console.log("test");
+    let n = Math.floor(Math.random() * departments.length);
     if (arr.indexOf(n) == -1) arr.push(n);
 }
 for (let i = 0; i < studentNames.length; i++) {
-    let student = { name: studentNames[i], department: departments[arr[i] - 1] };
+    let student = { name: studentNames[i], department: departments[arr[i]] };
     students.push(student);
 }
-
 console.log(students);
+
+
+
+
+
+
 
 
 
