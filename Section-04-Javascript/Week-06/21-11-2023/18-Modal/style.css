@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    gap: 15px;
+}
+
+#title {
+    color: rgb(91, 21, 36);
+    font-weight: normal;
+    font-size: 40px;
+}
+
+button {
+    background-color: rgb(168, 187, 206);
+    color: white;
+    border: none;
+    padding: 7px 10px;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition-duration: 0.2s;
+}
+
+button:hover {
+    opacity: .8;
+}
+
+.main-modal {
+    background-color: rgba(127, 127, 127, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;    
+    justify-content: center;
+    align-items: center;
+}
+
+.main-modal-none{
+    display: none;
+}
+
+.modal{
+    background-color: white;
+    padding: 20px;
+    height: 200px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+}
+.modal-header{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(181, 179, 179);
+    padding-bottom: 5px;
+}
+.modal-header h2{
+    color: maroon;
+    font-weight: normal;
+    font-size: 22px;
+}
+.btn-close-modal{
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+}
+.btn-close-modal:hover{
+    color: gray;
+}
+.modal-footer{
+    text-align: end;
+}
+.btn-modal-no{
+    border: 1px solid rgb(199, 197, 197);
+    background-color: aliceblue;
+    color: gray;
+}
+.btn-modal-no:hover{
+    background-color:rgb(236, 245, 245);
+}
