@@ -1,16 +1,15 @@
 const display = document.querySelector(".calculator-input");
 const keys = document.querySelector(".calculator-keys");
-// const outputDisplay = document.querySelector(".output");
-
 
 let displayValue = "0";
 let waitingForSecondValue = false;
 let previousValue = null;
 let operator = null;
+let newValue = "0";
+let sum = 0;
 
 function updateDisplay() {
-    display.value = displayValue;
-    // outputDisplay = displayValue;
+    display.value=displayValue;
 }
 
 keys.addEventListener("click", function (e) {
@@ -40,19 +39,30 @@ keys.addEventListener("click", function (e) {
 
 function clearDisplay() {
     displayValue = "0";
+    newValue = "0";
+    sum = 0;
 }
 
 function handleOperator(nextOp){
     waitingForSecondValue = true;
-   
-}
+    if(nextOp=="+"){
+        sum+=parseInt(displayValue);
+
+    }
+    if (nextOp=="=") {
+        displayValue=sum;
+    }
+};
 
 function inputNumber(num) {
     if (!waitingForSecondValue) {
         displayValue = displayValue == "0" ? num : displayValue + num;
-        // previousValue=displayValue;
+        previousValue = displayValue;
+        newValue=0;
     }else{
-        displayValue = num;
+        newValue = newValue == "0" ? num : newValue + num;
+        displayValue=newValue;
+        waitingForSecondValue=false;
     }
 }
 
