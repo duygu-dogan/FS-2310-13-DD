@@ -1,0 +1,10 @@
+.Header{
+    background-color: navy;
+    padding: 5px;
+    border-radius: 5px;
+}
+.Header h1{
+    color: whitesmoke;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
