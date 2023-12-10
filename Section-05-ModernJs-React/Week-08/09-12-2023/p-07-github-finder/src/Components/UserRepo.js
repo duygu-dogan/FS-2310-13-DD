@@ -5,7 +5,7 @@ const UserRepo = ({userRepoName, userRepoUrl}) => {
   return (
     <>
         <ListGroup.Item className='w-25 border-top' target='_blank' action href={userRepoUrl}>
-              {userRepoName}
+        {userRepoName}
         </ListGroup.Item>
        
     </>

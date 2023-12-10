@@ -33,9 +33,6 @@ function App() {
       .then(response => {setUserRepos(response.data)})
   }
 
-  // const searchUser = (_userName) => {
-  //   users.filter(user => _userName == user)}
-
   useEffect(()=>{
   searchUsers();
   },[]);

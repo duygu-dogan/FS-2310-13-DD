@@ -4,17 +4,18 @@ import { Container, Row } from 'react-bootstrap'
 import User from './User'
 
 const Users = () => {
-    const context = useContext(AppContext)
+    const context = useContext(AppContext);
+
     return (
         <>
             <Container>
                 <Row>
-                    {context.users.map(user => <User key={user.id} user={user}/>)}
+                   {context.users.map(user => <User key={user.id} user={user} />)}
                 </Row>
             </Container>
 
         </>
     )
-}
+    }
 
 export default Users;

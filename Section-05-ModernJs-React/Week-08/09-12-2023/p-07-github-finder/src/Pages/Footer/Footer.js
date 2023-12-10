@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <>
     
-      <Alert variant='info'>
+      <Alert className='mb-0' variant='info'>
               <Container>
         Bu uygulama FS-2310-13 sınıfı tarafından geliştirilmiştir.
           </Container>
