@@ -7,6 +7,7 @@ import Footer from './Pages/Footer/Footer';
 import { AppContext } from './Contexts/AppContext';
 import { useEffect, useState } from 'react';
 import Axios from 'axios';
+import { render } from '@testing-library/react';
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -16,7 +17,7 @@ function App() {
   const [keyword, setKeyword] = useState("");
 
 
-  const token = "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";
+  const token = "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";
   const config = { headers: { Authorization: `Bearer ${token}` } }
 
   const getAllUsers = () => {
@@ -50,10 +51,6 @@ function App() {
     setKeyword("");
     setIsClearBtnShow(false);
   };
-
-  useEffect(() => {
-    getAllUsers();
-  }, []);
 
   return (
     <>
