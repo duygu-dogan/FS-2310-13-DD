@@ -16,16 +16,21 @@ const SearchForm = () => {
         };
     }
 
+    const handleChange = (value) => {
+        context.setKeyword(value);
+        }
+    
     useEffect(() => {
         context.handleClearAllClick()
     }, [])
+
     return (
         <>
             <Container className='py-3'>
                 <Form onSubmit={handleSubmit}>
                     <InputGroup>
                         <Form.Control
-                            onChange={(e) => context.setKeyword(e.target.value)}
+                            onChange={(e) => handleChange(e.target.value)}
                             value={context.keyword}
                             type='text'
                             placeholder='Enter the user name you want to search...'>
