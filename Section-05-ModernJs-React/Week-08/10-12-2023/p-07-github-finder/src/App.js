@@ -7,7 +7,7 @@ import Footer from './Pages/Footer/Footer';
 import { AppContext } from './Contexts/AppContext';
 import { useEffect, useState } from 'react';
 import Axios from 'axios';
-import { render } from '@testing-library/react';
+
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -18,7 +18,7 @@ function App() {
   const [searchBar, setSearchBar] = useState([]);
 
 
-  const token = "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";
+  const token = "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";
   const config = { headers: { Authorization: `Bearer ${token}` } }
 
   const getAllUsers = () => {

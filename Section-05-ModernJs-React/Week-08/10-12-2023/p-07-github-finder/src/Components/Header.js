@@ -17,7 +17,6 @@ function Header() {
           <Nav className='ms-auto'>
             <NavLink className="nav-link" to="/">Home</NavLink>
             <Button onClick={context.handleClearAllClick} className="nav-link" href="/search">Search</Button>
-          
           </Nav>
         </Container>
       </Navbar>
