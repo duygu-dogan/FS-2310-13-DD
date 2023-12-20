@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './Components/Header';
-import Homepage from './Pages/Homepage/Homepage';
+import Homepage from './Pages/Homepage/Homepage'
 import SearchPage from './Pages/SearchPage/SearchPage';
 import Footer from './Pages/Footer/Footer';
 import { AppContext } from './Contexts/AppContext';
@@ -59,7 +59,7 @@ function App() {
         <BrowserRouter>
           <Header />
           <Routes>
-            <Route path="/" element={<Homepage />} />
+            <Route path="/" element={<Homepage/>}/>
             <Route path='/search' element={<SearchPage />} />
 
           </Routes>
