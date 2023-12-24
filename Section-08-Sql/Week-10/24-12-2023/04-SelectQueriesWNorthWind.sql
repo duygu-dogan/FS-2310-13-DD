@@ -81,25 +81,10 @@ go
 --from OrderDetails OD
 --group by OD.OrderID
 
---select 
---	o.EmployeeID,
---	o.CustomerID,
---	COUNT(*) as [Quantity]
---from Orders o
---group by o.EmployeeID, o.CustomerID
-
---select
---	p.CategoryID,
---	COUNT(*) as [quantity]
---from Products p
---group by p.CategoryID
---having COUNT(*)>=10
-
 select 
-	p.CategoryID,
-	sum(p.UnitsInStock) as Stok
-from Products p
-where p.UnitsInStock>=30
-group by p.CategoryID
-having SUM(p.UnitsInStock)>=300
+	o.EmployeeID,
+	o.CustomerID,
+	COUNT(*) as [Quantity]
+from Orders o
+group by o.EmployeeID, o.CustomerID
 
