@@ -18,7 +18,7 @@ function App() {
   const [searchBar, setSearchBar] = useState([]);
 
 
-  const token = "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";
+  const token = "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";
   const config = { headers: { Authorization: `Bearer ${token}` } }
 
   const getAllUsers = () => {
