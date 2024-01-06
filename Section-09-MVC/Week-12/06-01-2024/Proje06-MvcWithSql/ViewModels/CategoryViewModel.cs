@@ -5,13 +5,11 @@ using System.Threading.Tasks;
 
 namespace Proje06_MvcWithSql.ViewModels
 {
-    public class ProductViewModel
+    public class CategoryViewModel
     {
         public int Id {get; set;}
-        public int CategoryId {get; set;}
         public string Name { get; set; }
-        public decimal Price { get; set; }
-        public int Stock {get; set;}
+        public string Description { get; set; }
         
     }
 }

@@ -12,9 +12,9 @@ namespace Proje06_MvcWithSql.Dal
 {
     public static class Db
     {
-        private static SqlConnection connection = CreateConnection();
+        public static SqlConnection connection = CreateConnection();
         private static SqlConnection CreateConnection(){
-            string connectionString = @"Server=DD_PC\SQLEXPRESS;Database=Northwind;Trusted_Connection=true;TrustServerCertificate=true";
+            string connectionString = @"Server=KADIRINC\SQLEXPRESS;Database=Northwind;Trusted_Connection=true;TrustServerCertificate=true";
             return new SqlConnection(connectionString);   
         }
         public static void OpenCn(){
