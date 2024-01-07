@@ -14,7 +14,7 @@ namespace Proje06_MvcWithSql.Dal
     {
         public static SqlConnection connection = CreateConnection();
         private static SqlConnection CreateConnection(){
-            string connectionString = @"Server=KADIRINC\SQLEXPRESS;Database=Northwind;Trusted_Connection=true;TrustServerCertificate=true";
+            string connectionString = @"Server=.\ZAREBUTIK;Database=Northwind;Trusted_Connection=true;TrustServerCertificate=true";
             return new SqlConnection(connectionString);   
         }
         public static void OpenCn(){

@@ -47,32 +47,7 @@ namespace Proje06_MvcWithSql.Controllers
 
         Db.CloseCn();
 
-        Db.OpenCn();
-        queryString = @"select 
-                        CategoryID as [ID],
-                        CategoryName as [Name]
-                    from Categories c";
-        SqlCommand cmd = new SqlCommand(queryString, Db.connection);
-        SqlDataReader reader = cmd.ExecuteReader();
-        List<CategoryViewModel> categories = new List<CategoryViewModel>();
-        CategoryViewModel category = null;
-        while (reader.Read())
-        {
-            category = new CategoryViewModel{
-                Id = Convert.ToInt32(reader[0]),
-                Name = reader[1].ToString()
-            };
-            categories.Add(category);
-        }
-        Db.CloseCn();
-
-        CategoriesProducts model = new CategoriesProducts
-        {
-            Categories = categories,
-            Products = products 
-        };
-
-            return View(model);
+            return View(products);
         }
     }
 }

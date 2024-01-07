@@ -1,13 +1,13 @@
-@model CategoriesProducts
+@model List<ProductViewModel>
 @{
     ViewData["Title"] = "Product Page";
-    List<ProductViewModel> productList = Model.Products;
+    List<ProductViewModel> productList = Model;
 }
 
 <div class="container">
     <div class="row">
         <div class="col-md-2">
-            @await Html.PartialAsync("_CategoriesPartial", Model.Categories)
+            @await Component.InvokeAsync("Categories")
         </div>
         <div class="col-md-10">
             <div class="row">

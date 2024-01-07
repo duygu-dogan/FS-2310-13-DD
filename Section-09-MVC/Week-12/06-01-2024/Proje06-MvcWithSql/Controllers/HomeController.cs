@@ -6,15 +6,16 @@ using Proje06_MvcWithSql.Dal;
 using Proje06_MvcWithSql.Models;
 using Proje06_MvcWithSql.ViewModels;
 
-namespace Proje06_MvcWithSql.Controllers;
-
-public class HomeController : Controller
+namespace Proje06_MvcWithSql.Controllers
 {
-    public IActionResult Index()
-    {
 
-        Db.OpenCn();
-        string queryString = @"select 
+    public class HomeController : Controller
+    {
+        public IActionResult Index()
+        {
+
+            Db.OpenCn();
+            string queryString = @"select 
                                     p.ProductID as Id, 
                                     p.ProductName as Name, 
                                     p.UnitPrice as Price, 
@@ -24,50 +25,28 @@ public class HomeController : Controller
                                 where p.UnitsInStock>=100
                                 order by p.UnitsInStock desc";
 
-        SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(queryString, Db.connection);
-        DataTable dataTable = new DataTable();
-        sqlDataAdapter.Fill(dataTable);
-        List<ProductViewModel> products = new List<ProductViewModel>();
-        ProductViewModel productViewModel = null;
-        foreach (DataRow productRow in dataTable.Rows)
-        {
-            productViewModel = new ProductViewModel
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(queryString, Db.connection);
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            List<ProductViewModel> products = new List<ProductViewModel>();
+            ProductViewModel productViewModel = null;
+            foreach (DataRow productRow in dataTable.Rows)
             {
-                Id = Convert.ToInt32(productRow[0]),
-                Name = productRow[1].ToString(),
-                Price = Convert.ToDecimal(productRow[2]),
-                CategoryId = Convert.ToInt32(productRow[3]),
-                Stock = Convert.ToInt32(productRow[4])
-            };
-            products.Add(productViewModel);
+                productViewModel = new ProductViewModel
+                {
+                    Id = Convert.ToInt32(productRow[0]),
+                    Name = productRow[1].ToString(),
+                    Price = Convert.ToDecimal(productRow[2]),
+                    CategoryId = Convert.ToInt32(productRow[3]),
+                    Stock = Convert.ToInt32(productRow[4])
+                };
+                products.Add(productViewModel);
+            }
+
+            Db.CloseCn();
+
+            return View(products);
         }
-
-        Db.CloseCn();
-
-        Db.OpenCn();
-        queryString = @"select 
-                        CategoryID as [ID],
-                        CategoryName as [Name]
-                    from Categories c";
-        SqlCommand cmd = new SqlCommand(queryString, Db.connection);
-        SqlDataReader reader = cmd.ExecuteReader();
-        List<CategoryViewModel> categories = new List<CategoryViewModel>();
-        CategoryViewModel category = null;
-        while (reader.Read())
-        {
-            category = new CategoryViewModel{
-                Id = Convert.ToInt32(reader[0]),
-                Name = reader[1].ToString()
-            };
-            categories.Add(category);
-        }
-        Db.CloseCn();
-
-        CategoriesProducts model = new CategoriesProducts
-        {
-            Categories = categories,
-            Products = products 
-        };
-        return View(model);
     }
+
 }
