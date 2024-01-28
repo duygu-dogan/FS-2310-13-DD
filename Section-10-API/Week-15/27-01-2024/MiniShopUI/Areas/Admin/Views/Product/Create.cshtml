@@ -1,0 +1,151 @@
+﻿@model AddProductViewModel
+
+ <!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between mb-2 align-content-center">
+                <div class="col-10 mx-auto">
+                    <h1>Yeni Ürün</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-10 mx-auto">
+                    <form
+                        asp-area="Admin"
+                        asp-controller="Product"
+                        asp-action="Create"
+                        method="post">
+
+                        <!-- Ürün Bilgileri-->
+                        <div class="card card-success">
+                            <div class="card-header">
+                                <h3 class="card-title">Ürün Bilgileri</h3>
+                            </div>
+                            <div class="card-body">
+                            
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                                <label asp-for="Name"></label>
+                                                <input asp-for="Name" type="text" class="form-control" placeholder="Ürün Adını Giriniz...">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                                <label asp-for="Price"></label>
+                                                <input asp-for="Price" type="text" class="form-control" placeholder="Ürün Fiyatını Giriniz...">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <!-- text input -->
+                                            <div class="form-group m-0">
+                                                 <label asp-for="ImageUrl"></label>
+                                                @*<input asp-for="ImageUrl" type="text" class="form-control" placeholder="Ürün resminin URL'ini giriniz..."> *@
+                                                <div class="card-body py-0 px-1">
+                                                    <div id="actions" class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="btn-group w-100">
+                                                                <span class="btn btn-success col fileinput-button">
+                                                                    <i class="fas fa-plus"></i>
+                                                                    <span>Add files</span>
+                                                                </span>
+                                                                <button type="submit" class="btn btn-primary col start">
+                                                                    <i class="fas fa-upload"></i>
+                                                                    <span>Start upload</span>
+                                                                </button>
+                                                                <button type="reset" class="btn btn-warning col cancel">
+                                                                    <i class="fas fa-times-circle"></i>
+                                                                    <span>Cancel upload</span>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 d-flex align-items-center">
+                                                            <div class="fileupload-process w-100">
+                                                                <div id="total-progress" class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                                                                    <div class="progress-bar progress-bar-success" style="width:0%;" data-dz-uploadprogress></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label class="mx-auto" >Seçenekler</label>
+                                            <div class="d-flex">
+                                                <div class="icheck-success mr-5">
+                                                    <input asp-for="IsActive" type="checkbox">
+                                                    <label asp-for="IsActive" for="IsActive"></label>
+                                                </div>
+                                                <div class="icheck-success">
+                                                    <input asp-for="IsHome" type="checkbox">
+                                                    <label asp-for="IsHome" for="IsHome"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 mt-3">
+                                            <label asp-for="Properties"></label>
+                                            <textarea asp-for="Properties"></textarea>
+                                        </div>
+                                     </div>
+                            
+                            </div>
+                        </div>
+                        <!-- Ürün Kategorileri -->
+                        <div class="card card-warning">
+                            <div class="card-header">
+                                <h3 class="card-title fw-bolder">Kategori Seç (En az bir kategori seçmelisiniz!)</h3>
+                            </div>
+                            <div class="card-body">
+                                @foreach(var c in Model.Categories)
+                                {
+                                    <div class="icheck-success d-inline mr-5">
+                                        <input name="categoryIds" value="@c.Id" id="category_checkbox_@c.Id" type="checkbox">
+                                        <label for="category_checkbox_@c.Id">@c.Name</label>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <!-- Ürün Ekle Butonu -->
+                        <div class="mb-3">                    
+                          <button type="submit" class="btn btn-primary btn-block">Kaydet</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- /.content-wrapper -->
+
+
+@section Styles{
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="~/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- dropzonejs -->
+    <link rel="stylesheet" href="~/admin/plugins/dropzone/min/dropzone.min.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="~/admin/plugins/summernote/summernote-bs4.min.css">
+}
+
+@section Scripts{
+    <!-- dropzonejs -->
+    <script src="~/admin/plugins/dropzone/min/dropzone.min.js"></script>
+    <!-- Summernote -->
+    <script src="~/admin/plugins/summernote/summernote-bs4.min.js"></script>
+    <script>
+            // Summernote
+            $('#Properties').summernote()
+    </script>
+}
