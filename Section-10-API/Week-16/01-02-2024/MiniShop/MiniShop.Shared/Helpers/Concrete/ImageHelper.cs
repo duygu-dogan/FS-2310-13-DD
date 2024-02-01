@@ -39,7 +39,7 @@ namespace MiniShop.Shared.Helpers.Concrete
             //localhost:5000/wwwroot/images/categories
             //localhost:5000/wwwroot/images/users
             var fileExtension = Path.GetExtension(image.FileName);
-            if(!ImageIsValid(fileExtension)) 
+            if(!IsImageValid(fileExtension)) 
             {
                 return "Hatalı resim dosyası";
             }
