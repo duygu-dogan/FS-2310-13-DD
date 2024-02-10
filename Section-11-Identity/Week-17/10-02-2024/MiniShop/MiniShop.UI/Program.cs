@@ -1,4 +1,4 @@
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MiniShop.Business.Abstract;
@@ -19,6 +19,38 @@ builder.Services.AddDbContext<MiniShopDbContext>(options =>
 builder.Services.AddIdentity<User, Role>()
     .AddEntityFrameworkStores<MiniShopDbContext>()
     .AddDefaultTokenProviders();
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    #region Parola Ayarları
+    options.Password.RequiredLength = 6; //Password should contain at least 6 characters. Default value is also 6.
+    options.Password.RequireDigit = true; // Password should contain at least 1 digit character.
+    options.Password.RequireNonAlphanumeric = true; // Password should contain at least 1 nonalphanumeric character.
+    options.Password.RequireUppercase = true; // Password should contain at least 1 uppercase character.
+    options.Password.RequireLowercase = true; // Password should contain at least 1 lowercase character.
+                                              //options.Password.RequiredUniqueChars // The characters that are not wanted to be reused.
+    #endregion
+    #region Hesap Kilitleme Ayarlarım
+    options.Lockout.MaxFailedAccessAttempts = 3; // max failed login attempts
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(15); //Waiting time required to log in to a locked account
+    //options.Lockout.AllowedForNewUsers = true; // Allow a locked account to register again
+    #endregion
+    options.User.RequireUniqueEmail = true; // all emails can only be saved once
+    options.SignIn.RequireConfirmedEmail = false; //email confirmation requirement 
+});
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Account/Login"; 
+    options.LogoutPath = "/";
+    options.AccessDeniedPath = "/Account/AccessDenied";
+    options.ExpireTimeSpan = TimeSpan.FromSeconds(45);
+    options.SlidingExpiration = true;
+    options.Cookie = new CookieBuilder
+    {
+        Name = "MiniShop.Security.Cookie",
+        HttpOnly = true,
+        SameSite = SameSiteMode.Strict
+    };
+});
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

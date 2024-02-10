@@ -68,5 +68,12 @@ namespace MiniShop.UI.Controllers
             }
             return RedirectToAction("Index", "Home");
         }
+
+        public async Task<IActionResult> LogOut()
+        {
+            await _signInManager.SignOutAsync();
+            return Redirect("~/");
+        }
+
     }
 }

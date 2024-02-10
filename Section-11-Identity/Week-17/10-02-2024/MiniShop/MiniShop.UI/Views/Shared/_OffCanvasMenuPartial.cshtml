@@ -14,16 +14,24 @@
     </div>
     <div id="mobile-menu-wrap"></div>
     <div class="offcanvas__auth">
-        <a 
-            asp-area=""
-            asp-controller="Account"
-            asp-action="Login"
-        >Giriş Yap</a>
-        <a 
-            asp-area=""
-            asp-controller="Account"
-            asp-action="Register"
-        >Kayıt Ol</a>
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <a asp-area=""
+               asp-controller="Account"
+               asp-action="Login">Giriş Yap</a>
+            <a asp-area=""
+               asp-controller="Account"
+               asp-action="Register">Kayıt Ol</a>
+        }
+        else
+        {
+            <a asp-area=""
+               asp-controller="Account"
+               asp-action="Profile">Hesabım</a>
+            <a asp-area=""
+               asp-controller="Account"
+               asp-action="Logout">Çıkış Yap</a>
+        }
     </div>
 </div>
 <!-- Offcanvas Menu End -->

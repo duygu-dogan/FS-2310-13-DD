@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MiniShop.Business.Abstract;
 using MiniShop.Shared.Helpers.Abstract;
@@ -12,6 +13,7 @@ using System.Text.Json;
 
 namespace MiniShop.UI.Areas.Admin.Controllers
 {
+
     [Area("Admin")]
     public class ProductController : Controller
     {
@@ -45,7 +47,7 @@ namespace MiniShop.UI.Areas.Admin.Controllers
             var result = await _productManager.UpdateIsActiveAsync(id);
             return RedirectToAction("Index");
         }
-
+        [Authorize(Roles = "SuperAdmin")]
         [HttpGet]
         public async Task<IActionResult> Create()
         {
