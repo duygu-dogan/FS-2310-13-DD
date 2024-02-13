@@ -1,0 +1,17 @@
+﻿using MiniShop.Entity.Concrete;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MiniShop.Data.Abstract
+{
+    public interface IShoppingCartRepository: IGenericRepository<ShoppingCart>
+    {
+        Task<ShoppingCart> GetShoppingCartByUserIdAsync(string id);
+        Task DeleteFromShoppingCartAsync(int shoppingCartId, int productId);
+        Task ClearFromShoppingCartAsync(int shoppingCartId);
+
+    }
+}
