@@ -97,9 +97,18 @@
                             <div class="card-tools ml-4">
                                     <button class="btn btn-outline-secondary dropdown-toggle" id="dropdown-btn" type="button" data-toggle="dropdown" aria-expanded="false">5</button>
                                     <div class="dropdown-menu" style="min-width:fit-content!important">
-                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Home" asp-action="Index" asp-route-id="5">5</a>
-                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Home" asp-action="Index" asp-route-id="10">10</a>
-                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Home" asp-action="Index" asp-route-id="15">15</a>
+                                    <form asp-area="Admin" asp-controller="Home" asp-action="Index">
+                                        <input type="hidden" name="filterCount" value="2" />
+                                        <button id="dropdown-item" class="dropdown-item" type="submit">2</button>
+                                    </form>
+                                    <form asp-area="Admin" asp-controller="Home" asp-action="Index">
+                                        <input type="hidden" name="filterCount" value="10" />
+                                        <button id="dropdown-item" class="dropdown-item" type="submit">10</button>
+                                    </form>
+                                    <form asp-area="Admin" asp-controller="Home" asp-action="Index">
+                                        <input type="hidden" name="filterCount" value="15" />
+                                        <button id="dropdown-item" class="dropdown-item" type="submit">15</button>
+                                    </form>
                                     </div>
                             </div>
 
@@ -147,3 +156,13 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+@section Scripts{
+    <script>
+        
+        $('#dropdown-item').click(function () {
+            var value = $(this).text();
+            $('#dropdown-btn').text(value);
+        })
+        
+    </script>
+}

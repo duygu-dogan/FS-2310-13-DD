@@ -17,10 +17,10 @@ namespace MiniShop.UI.Areas.Admin.Controllers
             _orderManager = orderManager;
         }
 
-        public async Task<IActionResult> Index(int id = 5)
+        public async Task<IActionResult> Index(int filterCount = 5)
         {
             List<AdminOrderViewModel> orders = await _orderManager.GetOrdersAsync();   
-            orders = orders.Take(id).ToList();
+            orders = orders.Take(filterCount).ToList();
             return View(orders);
         }
     }
