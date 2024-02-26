@@ -19,14 +19,14 @@ namespace MiniShop.UI.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            List<AdminOrderViewModel> orders = await _orderManager.GetOrdersAsync();   
-            //orders = orders.Take(5).ToList();
+            List<AdminOrderViewModel> orders = await _orderManager.GetOrdersAsync();
+            orders = orders.Take(2).ToList();
             return View(orders);
         }
-        public async Task<IActionResult> FilterOrders(int count)
+        public async Task<IActionResult> FilterOrders(int id)
         {
             List<AdminOrderViewModel> orders = await _orderManager.GetOrdersAsync();
-            orders = orders.Take(count).ToList();
+            orders = orders.Take(id).ToList();
             return PartialView("_FilterByNumberPartial", orders);
         }
     }

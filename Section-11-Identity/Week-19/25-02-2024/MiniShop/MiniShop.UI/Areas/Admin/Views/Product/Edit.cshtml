@@ -4,8 +4,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
-            <div class="d-flex justify-content-between mb-2">
-                <div>
+            <div class="d-flex justify-content-between mb-2 align-content-center">
+                <div class="col-10 mx-auto">
                     <h1>Ürün Güncelleme</h1>
                 </div>
             </div>
@@ -15,7 +15,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-12">
+                <div class="col-10 mx-auto">
                     <form
                         asp-area="Admin"
                         asp-controller="Product"
@@ -78,14 +78,15 @@
 
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label>Ürün Resmi</label>
+                                            <label>Ürün Görseli</label>
                                             <input type="hidden" value="@Model.ImageUrl"  id="oldImageUrl" />
                                             <input id="image" name="image" type="file" class="d-none" accept="image/png, image/jpg, image/jpeg" />
                                             <div class="mt-2">
-                                                <label class="btn btn-success" for="image">Ürün Resmini Değiştir</label>
+                                                <label class="btn btn-success" for="image">Ürün Görselini Değiştir</label>
                                             </div>
                                             <span class="text-danger">@ViewBag.ImageErrorMessage</span>
-                                            <img src="/images/products/@Model.ImageUrl" id="image-viewer" class="img-fluid" style="height:200px;" />
+                                                <img src="/images/products/@Model.ImageUrl" id="image-viewer" class="img-fluid" style="height:200px;" />
+                                            
                                         </div>
                                     </div>
 

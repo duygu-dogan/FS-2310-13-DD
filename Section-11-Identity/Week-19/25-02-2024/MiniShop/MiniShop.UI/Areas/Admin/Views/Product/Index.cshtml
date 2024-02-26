@@ -4,21 +4,20 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
-            <div class="d-flex justify-content-between mb-2">
+            <div class="col-sm-10 d-flex justify-content-between mx-auto my-auto">
                 <div>
                     <h1>Ürün Listesi @(ViewBag.ShowDeleted ? "Çöp Kutusu": "")</h1>
                 </div>
                 <div>
                     <a asp-area="Admin"
                        asp-controller="Product"
-                       asp-action="Index"
-                       asp-route-id="@(!ViewBag.ShowDeleted)"
-                    class="btn btn-sm @(ViewBag.ShowDeleted ? "btn-info" : "btn-danger")">@(ViewBag.ShowDeleted ? "Ürün Listesine Geri Dön" : "Çöp Kutusu" )</a>
-
-                    <a asp-area="Admin"
-                       asp-controller="Product"
                        asp-action="Create"
                        class="btn btn-success btn-sm">Yeni Ürün</a>
+                    <a asp-area="Admin"
+                       asp-controller="Product"
+                       asp-action="Index"
+                       asp-route-id="@(!ViewBag.ShowDeleted)"
+                       class="btn @(!ViewBag.ShowDeleted ? "btn-danger" : "btn-info") btn-sm">@(ViewBag.ShowDeleted ? "Ürün Listesi" : "Çöp Sepeti") </a>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -28,7 +27,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-12">
+                <div class="col-10 mx-auto">
                     <div class="card">
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -36,12 +35,12 @@
                                 <thead>
                                     <tr>
                                         <th>Id</th>
-                                        <th>Resim</th>
+                                        <th>Görsel</th>
                                         <th>Ürün</th>
                                         <th>Fiyat</th>
-                                        <th>Ana Sayfa</th>
+                                        <th width="70">Ana Sayfa</th>
                                         <th>Aktif</th>
-                                        <th width="55">#</th>
+                                        <th width="50">#</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -91,13 +90,13 @@
                                                        asp-action="Edit"
                                                        asp-route-id="@p.Id"
                                                        class="btn btn-warning btn-sm">
-                                                       <i class="far fa-edit"></i></a>
+                                                       <i class="fas fa-edit"></i></a>
                                                     <a asp-area="Admin"
                                                        asp-controller="Product"
                                                        asp-action="Delete"
                                                        asp-route-id="@p.Id"
                                                        class="btn btn-danger btn-sm">
-                                                       <i class="fas fa-trash"></i></a>
+                                                       <i class="fas fa-trash-alt"></i></a>
                                                 }else{
                                                     <a asp-area="Admin"
                                                        asp-controller="Product"
@@ -111,7 +110,7 @@
                                                        asp-action="HardDelete"
                                                        asp-route-id="@p.Id"
                                                        class="btn btn-danger btn-sm">
-                                                        <i class="fas fa-trash"></i>
+                                                        <i class="fas fa-trash-alt"></i>
                                                     </a>
                                                 }
  
@@ -171,8 +170,4 @@
 
 @section Scripts{
     @await Html.PartialAsync("_DataTablesJsPartial")
-}
-@section TopScripts
-{
-   
 }

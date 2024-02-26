@@ -80,7 +80,7 @@ namespace MiniShop.Business.Concrete
 
         public async Task<Response<NoContent>> SoftDeleteAsync(int id)
         {
-            var product = await _repository.GetByIdAsync(c => c.Id == id);
+            var product = await _repository.GetByIdAsync(p => p.Id == id);
             if (product == null)
             {
                 return Response<NoContent>.Fail("İlgili ürün bulunamadı.");
@@ -201,5 +201,6 @@ namespace MiniShop.Business.Concrete
             var productViewModelList = _mapper.Map<List<ProductViewModel>>(productList);
             return Response<List<ProductViewModel>>.Success(productViewModelList);
         }
+
     }
 }

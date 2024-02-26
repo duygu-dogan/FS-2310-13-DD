@@ -4,11 +4,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
-            <div class="d-flex justify-content-between mb-2 align-content-center">
+            <div class="d-flex justify-content-between mb-2 align-content-center col-sm-10 mx-auto" style="margin-bottom:0!important">
                 <div>
                     <h1>Kategori Listesi @(ViewBag.ShowDeleted ? "Çöp Kutusu" : "")</h1>
                 </div>
-                <div class="mr-5">
+                <div class="my-auto">
                     <a asp-area="Admin"
                        asp-controller="Category"
                        asp-action="Create"
@@ -27,7 +27,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-12">
+                <div class="col-10 mx-auto">
                     <div class="card">
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -53,17 +53,10 @@
                                                    class="btn btn-link">@c.Name</a>
                                             </td>
                                             <td class="text-center">
-                                                <form id="isActiveForm_@c.Id"
-                                                      asp-area="Admin"
-                                                      asp-controller="Category"
-                                                      asp-action="UpdateIsActive"
-                                                      asp-route-id="@c.Id">
-                                                    <div class="custom-control custom-switch">
-                                                        <input onchange="document.getElementById('isActiveForm_@c.Id').submit();" type="checkbox" class="custom-control-input" id="isActive_@c.Id"
-                                                        @(c.IsActive ? "checked" : "") />
-                                                        <label class="custom-control-label" for="isActive_@c.Id"></label>
-                                                    </div>
-                                                </form>
+                                                <div class="custom-control custom-switch">
+                                                    <input onchange="changeIsActive(this, '@c.Id');" type="checkbox" class="custom-control-input" id="isActive_@c.Id" />
+                                                    <label class="custom-control-label" for="isActive_@c.Id"></label>
+                                                </div>
                                             </td>
                                             <td class="text-center">
                                                 @if (!ViewBag.ShowDeleted)
@@ -115,8 +108,25 @@
 <!-- /.content-wrapper -->
 @section Styles {
     @await Html.PartialAsync("_DataTablesCssPartial")
+    <script>
+        const changeIsActive = (element, id) => {
+            console.log(id);
+            console.log(element.id)
+            $.ajax({
+                url: `/Admin/Category/UpdateIsActive/${id}`,
+                type: 'GET',
+                success: function (response) {
+                    $(element.id).attr('checked', response ? "checked" : "");
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            })
+        }
+    </script>
     }
 
-    @section Scripts {
+@section Scripts {
     @await Html.PartialAsync("_DataTablesJsPartial")
+    
     }

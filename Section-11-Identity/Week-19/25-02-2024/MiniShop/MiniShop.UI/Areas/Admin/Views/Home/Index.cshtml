@@ -137,13 +137,13 @@
 <!-- /.content-wrapper -->
 @section Styles {
     <script>
-        const filterOrders = function (element) {
+        const filterOrders = (element) => {
             const tBody = $('#orderTable tbody')
             $.ajax({
                 url: `/Admin/Home/FilterOrders/${element.value}`,
                 type: "GET",
-                success: function (data) {
-                    tBody.html(data);
+                success: function (response) {
+                    tBody.html(response);
                 },
                 error: function (error) {
                     console.log(error);

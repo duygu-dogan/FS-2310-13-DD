@@ -1,11 +1,15 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MiniShop.Business.Abstract;
+using MiniShop.Business.Concrete;
+using MiniShop.Shared.ResponseViewModels;
 using MiniShop.Shared.ViewModels;
 using MiniShop.UI.Helpers;
 
 namespace MiniShop.UI.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "SuperAdmin")]
     [Area("Admin")]
     public class CategoryController : Controller
     {
@@ -17,19 +21,18 @@ namespace MiniShop.UI.Areas.Admin.Controllers
             _categoryManager = categoryManager;
             _mapper = mapper;
         }
-
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> Index(bool id = false)
         {
-            var categories = await _categoryManager.GetNonDeletedCategories(id);
-            List<CategoryViewModel> categoryList = categories.Data.ToList();
+            Response<List<CategoryViewModel>> categories = await _categoryManager.GetNonDeletedCategories(id);
             ViewBag.ShowDeleted = id;
-            return View(categoryList);
+            return View(categories.Data);
         }
 
         //Form sayfasını açacak controller
         [HttpGet]
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
             AddCategoryViewModel model = new AddCategoryViewModel();
             return View(model);
@@ -45,12 +48,11 @@ namespace MiniShop.UI.Areas.Admin.Controllers
             }
             return View(model);
         }
-        [HttpPost]
         public async Task<IActionResult> UpdateIsActive(int id)
         {
             await _categoryManager.UpdateIsActiveAsync(id);
-            return RedirectToAction("Index");
-
+            var category = await _categoryManager.GetByIdAsync(id);
+            return Json(category.Data.IsActive);
         }
         [HttpGet]
         public async Task<IActionResult> Edit(int id) 
@@ -59,6 +61,25 @@ namespace MiniShop.UI.Areas.Admin.Controllers
             CategoryViewModel response = category.Data;
             EditCategoryViewModel model = _mapper.Map<EditCategoryViewModel>(response);
             return View(model);
+        }
+        public async Task<IActionResult> Delete(int id)
+        {
+            var deletedCategory = await _categoryManager.GetByIdAsync(id);
+            var categoryViewModel = deletedCategory.Data;
+            DeleteCategoryViewModel model = _mapper.Map<DeleteCategoryViewModel>(categoryViewModel);
+
+            return View(model);
+        }
+        public async Task<IActionResult> HardDelete(int id)
+        {
+           await _categoryManager.HardDeleteAsync(id);
+            return RedirectToAction("Index");
+        }
+        public async Task<IActionResult> SoftDelete(int id)
+        {
+            await _categoryManager.SoftDeleteAsync(id);
+            var caregoryViewModel = await _categoryManager.GetByIdAsync(id);
+            return Redirect($"/Admin/Category/Index/{!caregoryViewModel.Data.IsDeleted}");
         }
     }
 }

@@ -79,12 +79,12 @@ namespace MiniShop.Business.Concrete
             {
                 return Response<NoContent>.Fail("Böyle bir kategori bulunamadı");
             }
-            if (deletedCategory.IsDeleted)
-            {
-                return Response<NoContent>.Fail("Bu kategori zaten silinmiş!");
-            }
-            deletedCategory.IsDeleted = true;
-            deletedCategory.IsActive = false;
+            //if (deletedCategory.IsDeleted)
+            //{
+            //    return Response<NoContent>.Fail("Bu kategori zaten silinmiş!");
+            //}
+            deletedCategory.IsDeleted = !deletedCategory.IsDeleted;
+            deletedCategory.IsActive = !deletedCategory.IsActive;
             deletedCategory.ModifiedDate = DateTime.Now;
             await _repository.UpdateAsync(deletedCategory);
             return Response<NoContent>.Success();
@@ -129,10 +129,9 @@ namespace MiniShop.Business.Concrete
         public async Task<Response<List<CategoryViewModel>>> GetNonDeletedCategories(bool isDeleted = false)
         {
             var categoryList = await _repository.GetAllAsync(c => c.IsDeleted == isDeleted);
-            string status = isDeleted ? "silinmiş" : "silinmemiş";
-            if (categoryList.Count == 0)
+            if (categoryList == null)
             {
-                return Response<List<CategoryViewModel>>.Fail($"Hiç {status} kategori bulunamadı");
+                return Response<List<CategoryViewModel>>.Fail($"Hiç kategori bulunamadı");
             }
             var categoryViewModelList = _mapper.Map<List<CategoryViewModel>>(categoryList);
             return Response<List<CategoryViewModel>>.Success(categoryViewModelList);

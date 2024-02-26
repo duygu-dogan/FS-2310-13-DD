@@ -19,6 +19,7 @@ namespace MiniShop.Business.Mappings
             CreateMap<Category, EditCategoryViewModel>().ReverseMap();
             CreateMap<CategoryViewModel, EditCategoryViewModel>().ReverseMap();
             CreateMap<Category, InCategoryViewModel>().ReverseMap();
+            CreateMap<CategoryViewModel, DeleteCategoryViewModel>().ReverseMap();
 
             CreateMap<Product, AddProductViewModel>().ReverseMap();
             CreateMap<Product, EditProductViewModel>().ReverseMap();

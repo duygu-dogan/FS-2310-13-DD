@@ -13,21 +13,21 @@ namespace MiniShop.Shared.ViewModels
     public class AddProductViewModel
     {
         [JsonPropertyName("Name")]
-        [DisplayName("�r�n")]
-        [Required(ErrorMessage = "{0} alan� bo� b�rak�lamaz.")]
-        [MinLength(5, ErrorMessage = "{0} alan�na uzunlu�u {1} karakterden k���k de�er girilemez.")]
-        [MaxLength(100, ErrorMessage = "{0} alan�na uzunlu�u {1} karakterden b�y�k de�er girilemez.")]
+        [DisplayName("Ürün")]
+        [Required(ErrorMessage = "{0} alanı boş bırakılamaz.")]
+        [MinLength(5, ErrorMessage = "{0} alanına uzunluğu {1} karakterden küçük değer girilemez.")]
+        [MaxLength(100, ErrorMessage = "{0} alanına uzunluğu {1} karakterden büyük değer girilemez.")]
         public string Name { get; set; }
 
 
         [JsonPropertyName("Properties")]
-        [DisplayName("�r�n �zellikleri")]
+        [DisplayName("Ürün Özellikleri")]
         public string Properties { get; set; }
 
 
         [JsonPropertyName("Price")]
-        [DisplayName("�r�n Fiyat�")]
-        [Required(ErrorMessage = "{0} alan� bo� b�rak�lamaz.")]
+        [DisplayName("Ürün Fiyatı")]
+        [Required(ErrorMessage = "{0} alanı boş bırakılamaz.")]
         public decimal? Price { get; set; }
 
 
@@ -41,12 +41,12 @@ namespace MiniShop.Shared.ViewModels
 
 
         [JsonPropertyName("IsActive")]
-        [DisplayName("Aktif �r�n")]
+        [DisplayName("Aktif Ürün")]
         public bool IsActive { get; set; }
 
 
         [JsonPropertyName("IsHome")]
-        [DisplayName("Ana Sayfa �r�n�")]
+        [DisplayName("Ana Sayfa Ürünü")]
         public bool IsHome { get; set; }
 
 
