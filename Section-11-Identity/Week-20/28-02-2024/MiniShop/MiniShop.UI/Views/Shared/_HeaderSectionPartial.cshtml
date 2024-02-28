@@ -41,6 +41,37 @@
             <div class="col-lg-3">
                 <div class="header__right">
                     <ul class="header__right__widget">
+                        <li class="dropdown" style="margin-right: 10px">
+                            <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-user-circle-o" style="font-size: 23px" aria-hidden="true"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                @if (!User.Identity.IsAuthenticated)
+                                {
+                                    <a class="dropdown-item" style="font-size: 15px" asp-area=""
+                                       asp-controller="Account"
+                                       asp-action="Login">Giriş Yap</a>
+                                    <a class="dropdown-item" style="font-size: 15px" asp-area=""
+                                       asp-controller="Account"
+                                       asp-action="Register">Kayıt Ol</a>
+                                }
+                                else
+                                {
+                                    if (User.IsInRole("SuperAdmin") || User.IsInRole("Admin"))
+                                    {
+                                        <a class="dropdown-item" style="font-size: 15px" asp-area="Admin"
+                                           asp-controller="Home"
+                                           asp-action="Index">Admin Panel</a>
+                                    }
+                                    <a class="dropdown-item" style="font-size: 15px" asp-area=""
+                                       asp-controller="Account"
+                                       asp-action="Profile">@User.Identity.Name</a>
+                                    <a class="dropdown-item" style="font-size: 15px" asp-area=""
+                                       asp-controller="Account"
+                                       asp-action="Logout">Çıkış</a>
+                                }
+                            </div>
+                        </li>
                         <li><span class="icon_search search-switch"></span>
                         
                         @if (User.Identity.IsAuthenticated)
@@ -49,36 +80,7 @@
                             @await Component.InvokeAsync("ShoppingCartNotification", User.Identity.Name ?? null)
                         }
                         
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                            <span class="icon_profile"></span></a>
-                            <div class="dropdown-menu" >
-                                @if (!User.Identity.IsAuthenticated)
-                                {
-                                <a class="dropdown-item" asp-area=""
-                                   asp-controller="Account"
-                                   asp-action="Login">Giriş Yap</a>
-                                <a class="dropdown-item" asp-area=""
-                                   asp-controller="Account"
-                                   asp-action="Register">Kayıt Ol</a>
-                                }
-                                else
-                                {
-                                    if (User.IsInRole("SuperAdmin") || User.IsInRole("Admin"))
-                                    {
-                                    <a class="dropdown-item" asp-area="Admin"
-                                       asp-controller="Home"
-                                       asp-action="Index">Admin Panel</a>
-                                    }
-                                <a class="dropdown-item" asp-area=""
-                                   asp-controller="Account"
-                                   asp-action="Profile">@User.Identity.Name</a>
-                                <a class="dropdown-item" asp-area=""
-                                   asp-controller="Account"
-                                   asp-action="Logout">Çıkış</a>
-                                }
-                            </div>
-                        </li>
+                        
                     </ul>
                 </div>
             </div>
