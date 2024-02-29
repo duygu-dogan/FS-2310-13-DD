@@ -42,25 +42,25 @@ namespace MiniShop.UI.Controllers
                     Email = registerViewModel.Email,
                     FirstName = registerViewModel.FirstName,
                     LastName = registerViewModel.LastName,
-                    EmailConfirmed= true
+                    //EmailConfirmed= true
                 };
 
                 var result = await _userManager.CreateAsync(user,registerViewModel.Password);
                 if (result.Succeeded)
                 {
                     //Mail gönderme işlemi başlıyor
-                    //Token oluşturma 
-                    //var tokenCode = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    //var backUrl = Url.Action("ConfirmEmail", "Account", new 
-                    //{ 
-                    //    userId = user.Id,
-                    //    token = tokenCode
-                    //});
-                    //await _emailSender.SendEmailAsync(
-                    //    user.Email,
-                    //    "MiniShopApp Üyelik Onayı",
-                    //    $"<div>MiniShopApp Uygulamasına üyeliğinizi onaylamak için aşağıdaki linke tıklayınız.</div> <br> <a href='https://local59079{backUrl}'>ONAY LİNKİ</a>"
-                    //    );
+                    //Token oluşturma
+                    var tokenCode = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    var backUrl = Url.Action("ConfirmEmail", "Account", new
+                    {
+                        userId = user.Id,
+                        token = tokenCode
+                    });
+                    await _emailSender.SendEmailAsync(
+                        user.Email,
+                        "MiniShopApp Üyelik Onayı",
+                        $"<div>MiniShopApp Uygulamasına üyeliğinizi onaylamak için aşağıdaki linke tıklayınız.</div> <br> <a href='https://local59079{backUrl}'>ONAY LİNKİ</a>"
+                        );
                     return Redirect("~/");
                 }
             }
