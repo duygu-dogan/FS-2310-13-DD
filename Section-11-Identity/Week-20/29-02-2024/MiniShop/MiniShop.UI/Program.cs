@@ -61,25 +61,6 @@ builder.Services.ConfigureApplicationCookie(options =>
 });
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-//var test = builder.Configuration.GetSection("EmailSender");
-//var host = test.GetValue<string>("Host");
-//var port = test.GetValue<int>("Port");
-//var enableSsl = test.GetValue<bool>("EnableSSL");
-//var userName = test.GetValue<string>("UserName");
-//var password = test.GetValue<string>("Password");
-//builder.Services.AddScoped<IEmailSender, SmtpEmailSender>(options => 
-//    new SmtpEmailSender(
-//        host, port, enableSsl, userName, password
-//        )
-//);
-builder.Services.AddScoped<IEmailSender, SmtpEmailSender>(options =>
-    new SmtpEmailSender(
-        builder.Configuration["EmailSender: Host"],
-        builder.Configuration.GetValue<int>("EmailSender: Port"),
-        builder.Configuration.GetValue<bool>("EmailSender: EnableSSL"),
-        builder.Configuration["EmailSender: UserName"],
-        builder.Configuration["EmailSender: Password"]
-        ));
 
 builder.Services.AddScoped<ICategoryService, CategoryManager>();
 builder.Services.AddScoped<IProductService, ProductManager>();
@@ -94,6 +75,25 @@ builder.Services.AddScoped<IShoppingCartItemRepository, ShoppingCartItemReposito
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 
 builder.Services.AddScoped<IImageHelper, ImageHelper>();
+//var test = builder.Configuration.GetSection("EmailSender");
+//var host = test.GetValue<string>("Host");
+//var port = test.GetValue<int>("Port");
+//var enableSsl = test.GetValue<bool>("EnableSSL");
+//var userName = test.GetValue<string>("UserName");
+//var password = test.GetValue<string>("Password");
+//builder.Services.AddScoped<IEmailSender, SmtpEmailSender>(options => 
+//    new SmtpEmailSender(
+//        host, port, enableSsl, userName, password
+//        )
+//);
+builder.Services.AddScoped<IEmailSender, SmtpEmailSender>(options =>
+    new SmtpEmailSender(
+        builder.Configuration["EmailSender:Host"],
+        builder.Configuration.GetValue<int>("EmailSender:Port"),
+        builder.Configuration.GetValue<bool>("EmailSender:EnableSSL"),
+        builder.Configuration["EmailSender:UserName"],
+        builder.Configuration["EmailSender:Password"]
+        ));
 
 var app = builder.Build();
 
