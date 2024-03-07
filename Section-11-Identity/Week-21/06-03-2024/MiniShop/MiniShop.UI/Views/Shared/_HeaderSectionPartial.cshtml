@@ -76,7 +76,7 @@
                         
                         @if (User.Identity.IsAuthenticated)
                         {
-                            @await Component.InvokeAsync("MessageNotification")
+                            @await Component.InvokeAsync("MessageNotification", User.Identity.Name)
                             @await Component.InvokeAsync("ShoppingCartNotification", User.Identity.Name ?? null)
                         }
                         

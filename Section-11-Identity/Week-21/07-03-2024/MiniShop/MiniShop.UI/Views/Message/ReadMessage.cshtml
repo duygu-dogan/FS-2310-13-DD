@@ -1,0 +1,35 @@
+﻿@model MessageViewModel
+
+<div class="container w-50 mt-5">
+    <h3 class="text-primary">Yeni Mesaj</h6>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+                <label class="font-weight-bold" asp-for="SendFromName"></label>
+                <label>@Model.SendFromName</label>
+                <hr />
+                <label class="font-weight-bold" asp-for="Text"></label>
+                <label>@Model.Text</label>
+                <hr />
+                <label class="font-weight-bold" asp-for="SendDate"></label>
+                <label>@Model.SendDate</label>
+        </div>
+            <div class="col-md-12 mt-3">
+                <form asp-area="" asp-controller="Message" asp-action="NewMessage" method="post">
+                    <input type="hidden" name="SendToId" value="@Model.SendFromId" />
+                    <input type="hidden" name="RelatedId" value="@Model.Id" />
+                <div class="form-group mb-2">
+                    <label class="font-weight-bold mt-3" asp-for="Reply"></label>
+                    <textarea rows="5" class="form-control" asp-for="Reply"></textarea>
+                </div>
+                <div>
+                    <button class="btn btn-primary" type="submit">Yanıt Ver</button>
+                        <a class="btn btn-secondary" asp-area="" asp-controller="Message" asp-action="Index">Geri Dön</a>
+
+                    </div>
+
+                </form>
+            </div>
+            
+   </div>
+</div>

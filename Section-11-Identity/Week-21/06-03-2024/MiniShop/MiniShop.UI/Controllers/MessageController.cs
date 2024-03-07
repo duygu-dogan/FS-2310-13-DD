@@ -75,11 +75,5 @@ namespace MiniShop.UI.Controllers
             await _messageManager.MarkAsReadAsync(id);
             return View(message);
         }
-        public async Task<IActionResult> MessageCount()
-        {
-            var userId = _userManager.GetUserId(User);
-            var response = await _messageManager.GetMessageCountAsync(userId);
-            return Json(response.Data);
-        }
     }
 }

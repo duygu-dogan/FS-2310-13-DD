@@ -67,9 +67,9 @@ namespace MiniShop.Business.Concrete
             return Response<MessageViewModel>.Success(messageViewModel);
         }
 
-        public async Task<Response<int>> GetMessageCountAsync(string userId, bool isRead = false)
+        public async Task<Response<int>> GetMessageCountAsync(string toUserId, bool isRead = false)
         {
-            var messageCount = await _messageRepository.GetCount(x => x.SendFromId == userId && x.IsRead == isRead);
+            var messageCount = await _messageRepository.GetCount(x => x.SendToId == toUserId && x.IsRead == isRead);
             if (messageCount == 0)
             {
                 return Response<int>.Fail("Mesaj bulunamadı");
