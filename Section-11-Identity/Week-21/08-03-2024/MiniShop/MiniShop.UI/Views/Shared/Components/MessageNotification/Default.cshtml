@@ -1,0 +1,10 @@
+﻿@model int
+<li>
+    <a asp-area="" asp-controller="Message" asp-action="Index">
+        <span class="icon_mail_alt"></span>
+        @if(Model != 0)
+        {
+            <div class="tip">@Model</div>
+        }
+    </a>
+</li>

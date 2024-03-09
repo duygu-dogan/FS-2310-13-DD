@@ -1,0 +1,63 @@
+﻿@model List<MessageViewModel>
+
+<div class="container mt-5 h-50">
+    <div class="col-sm-12 px-0">
+        <div class="d-flex align-items-center justify-content-between px-2">
+            <div class="d-flex justify-content-center">
+                <h4 class="text-center mb-3 font-weight-bold text-dark">Gelen Kutusu</h4>
+            </div>
+            <div>
+                <a asp-area="" asp-controller="Message" asp-action="NewMessage" class="btn btn-primary text-light">Yeni Mesaj</a>
+            </div>
+        </div>
+        @if(Model.Count == 0)
+        {
+            <hr />
+            <div class="alert alert-warning mt-5" role="alert">
+                Henüz hiç mesajınız yok.
+            </div>
+        }
+        else
+        {
+
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col-3">Gönderen</th>
+                        <th scope="col-3">Tarih/Saat</th>
+                        <th scope="col-6">Mesaj</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        var style = !item.IsRead ? "bg-light" : "";
+                        <tr class="@style">
+                        
+                        <td>@item.SendFromName</td>
+                            <td>@item.SendDate</td>
+                            @{var message = item.Text.Length >= 20 ? item.Text.Substring(0, 20) + "..." : item.Text;}
+                             
+                            <td class="d-flex justify-content-between">
+                                <div>
+                                    @item.Text
+                                </div>
+                                <div>
+                                    
+                                    <a 
+                                        asp-area=""
+                                        asp-controller="Message"
+                                        asp-action="ReadMessage"
+                                        asp-route-id="@item.Id"
+                                        class="btn btn-primary btn-sm text-light">Mesajı Gör</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        }
+    </div>
+</div>
