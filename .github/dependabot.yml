@@ -1,6 +1,6 @@
 version: 2
 updates:
   - package-ecosystem: "npm"
-    directory: "/Section-05-ModernJs-React/Week-06/26-11-2023/12-ReactIntro/first-react-app/package.json"
+    directory: "/Section-05-ModernJs-React/Week-06/26-11-2023/12-ReactIntro/first-react-app/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
